@@ -4,7 +4,7 @@
   "description": "Scan for UriBeacon's using node.js",
   "main": "index.js",
   "scripts": {
-    "pretest": "jshint *.js"
+    "pretest": "jshint *.js lib/*.js examples/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
   "homepage": "https://github.com/sandeepmistry/node-uri-beacon-scanner",
   "devDependencies": {
     "jshint": "^2.7.0"
+  },
+  "dependencies": {
+    "debug": "^2.1.3",
+    "noble": "^0.3.14"
   }
 }

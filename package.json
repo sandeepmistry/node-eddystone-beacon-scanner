@@ -1,6 +1,6 @@
 {
   "name": "uri-beacon-scanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scan for UriBeacon's using node.js",
   "main": "index.js",
   "scripts": {

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "debug": "^2.1.3",
-    "noble": "^0.3.14"
+    "noble": "^0.3.14",
+    "uri-beacon-uri-encoding": "^1.1.1"
   }
 }

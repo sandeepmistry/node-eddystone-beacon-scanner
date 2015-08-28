@@ -1,12 +1,8 @@
-var UriBeaconScanner = require('../'); // use require('uri-beacon-scanner'), if installed from npm
+var EddystoneBeaconScanner = require('../'); // use require('uri-beacon-scanner'), if installed from npm
 
-UriBeaconScanner.on('discover', function(uriBeacon) {
-  console.log('discovered UriBeacon:');
-  console.log('  uri      = ' + uriBeacon.uri);
-  console.log('  flags    = ' + uriBeacon.flags);
-  console.log('  TX power = ' + uriBeacon.txPower);
-  console.log('  RSSI     = ' + uriBeacon.rssi);
-  console.log();
+EddystoneBeaconScanner.on('discover', function(uriBeacon) {
+  console.log('discovered Eddystone Beacon:');
+  console.log(uriBeacon);
 });
 
-UriBeaconScanner.startScanning();
+EddystoneBeaconScanner.startScanning(true);

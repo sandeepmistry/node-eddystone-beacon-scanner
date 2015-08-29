@@ -1,13 +1,15 @@
-# node-uri-beacon-scanner is deprecated, use [node-eddystone-beacon-scanner](https://github.com/sandeepmistry/node-eddystone-beacon-scanner) as a replacement
+# node-eddystone-beacon-scanner
 
-Scan for [UriBeacon](https://github.com/google/uribeacon)'s using node.js
+Scan for [Eddystone beacon's](https://github.com/google/eddystone) using Node.js
 
-Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [UriBeacon Advertising Packet Specification](https://github.com/google/uribeacon/blob/master/specification/AdvertisingMode.md)
+Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [Eddystone Protocol Specification](https://github.com/google/eddystone/blob/master/protocol-specification.md)
+
+__Note:__ Only supports Eddystone-URL beacons currently.
 
 ## Setup
 
 ```sh
-npm install uri-beacon-scanner
+npm install eddystone-beacon-scanner
 ```
 
 ## Examples
@@ -18,36 +20,36 @@ See [examples](examples) folder.
 ## Usage
 
 ```javascript
-var UriBeaconScanner = require('uri-beacon-scanner');
+var EddystoneBeaconScanner = require('eddystone-beacon-scanner');
 ```
 
 ### Register discover event handler
 
 ```javascript
-UriBeaconScanner.on('discover', function(uriBeacon) {
+EddystoneBeaconScanner.on('discover', function(beacon) {
   // ...
 });
 ```
 
-The ```uriBeacon``` object will have the following properties:
+The ```beacon``` object will have the following properties:
 
- * ```uri``` - (expanded) URI the beacon is broadcasting
- * ```flags``` - flags
+ * ```url``` - (expanded) URL the beacon is broadcasting
+ * ```type``` - 'url'
  * ```txPower``` - measured received power at 0 m in dBm
  * ```rssi``` - RSSI of discovered beacon
 
 ### Start scanning
 
-Start scanning for UriBeacon's, you can specify whether to allow duplicates (default is false).
+Start scanning for Eddystone beacons, you can specify whether to allow duplicates (default is false).
 
 ```javascript
-UriBeaconScanner.startScannning(allowDuplicates);
+EddystoneBeaconScanner.startScannning(allowDuplicates);
 ```
 
 ### Stop scanning
 
-Stop scanning for UriBeacon's.
+Stop scanning for Eddystone beacons.
 
 ```javascript
-UriBeaconScanner.stopScannning();
+EddystoneBeaconScanner.stopScannning();
 ```

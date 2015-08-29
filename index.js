@@ -1,3 +1,3 @@
-var UriBeaconScanner = require('./lib/uri-beacon-scanner');
+var EddystoneBeaconScanner = require('./lib/eddystone-beacon-scanner');
 
-module.exports = new UriBeaconScanner();
+module.exports = new EddystoneBeaconScanner();

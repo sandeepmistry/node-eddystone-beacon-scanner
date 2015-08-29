@@ -1,8 +1,8 @@
-# node-uri-beacon-scanner
+# node-uri-beacon-scanner is deprecated, use [node-eddystone-beacon-scanner](https://github.com/sandeepmistry/node-eddystone-beacon-scanner) as a replacement
 
 Scan for [UriBeacon](https://github.com/google/uribeacon)'s using node.js
 
-Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [UriBeacon Advertising Packet Specification](https://github.com/google/uribeacon/blob/master/specification/AdvertisingMode.md) 
+Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [UriBeacon Advertising Packet Specification](https://github.com/google/uribeacon/blob/master/specification/AdvertisingMode.md)
 
 ## Setup
 

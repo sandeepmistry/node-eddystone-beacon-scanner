@@ -4,8 +4,6 @@ Scan for [Eddystone beacon's](https://github.com/google/eddystone) using Node.js
 
 Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [Eddystone Protocol Specification](https://github.com/google/eddystone/blob/master/protocol-specification.md)
 
-__Note:__ Only supports Eddystone-URL beacons currently.
-
 ## Setup
 
 ```sh
@@ -23,20 +21,41 @@ See [examples](examples) folder.
 var EddystoneBeaconScanner = require('eddystone-beacon-scanner');
 ```
 
-### Register discover event handler
+### Register event handlers
 
+##### didFindBeacon
 ```javascript
-EddystoneBeaconScanner.on('discover', function(beacon) {
+EddystoneBeaconScanner.on('didFindBeacon', function(beacon) {
   // ...
 });
 ```
 
-The ```beacon``` object will have the following properties:
+##### didLoseBeacon
 
+```javascript
+EddystoneBeaconScanner.on('didLoseBeacon', function(beacon) {
+  // ...
+});
+```
+
+The ```beacon``` object will have the following properties depending on the frame type:
+##### URL
+
+ * ```frameType``` - Eddystone frametype
+ * ```txPower``` - Measured received power at 0 m in dBm
  * ```url``` - (expanded) URL the beacon is broadcasting
- * ```type``` - 'url'
- * ```txPower``` - measured received power at 0 m in dBm
  * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
+
+##### UID
+ * ```frameType``` - Eddystone frametype
+ * ```txPower``` - Measured received power at 0 m in dBm
+ * ```namespace``` - 10-byte ID Namespace
+ * ```instance``` - 6-byte ID Instance
+ * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
+
+
 
 ### Start scanning
 

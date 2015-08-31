@@ -1,31 +1,32 @@
 {
-  "name": "uri-beacon-scanner",
-  "version": "1.0.1",
-  "description": "Scan for UriBeacon's using node.js",
+  "name": "eddystone-beacon-scanner",
+  "version": "2.0.0",
+  "description": "Scan for Eddystone beacon's using Node.js",
   "main": "index.js",
   "scripts": {
     "pretest": "jshint *.js lib/*.js examples/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandeepmistry/node-uri-beacon-scanner.git"
+    "url": "https://github.com/sandeepmistry/node-eddystone-beacon-scanner.git"
   },
   "keywords": [
-    "UriBeacon",
+    "Eddystone",
+    "Beacon",
     "Physical Web"
   ],
   "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sandeepmistry/node-uri-beacon-scanner/issues"
+    "url": "https://github.com/sandeepmistry/node-eddystone-beacon-scanner/issues"
   },
-  "homepage": "https://github.com/sandeepmistry/node-uri-beacon-scanner",
+  "homepage": "https://github.com/sandeepmistry/node-eddystone-beacon-scanner",
   "devDependencies": {
     "jshint": "^2.7.0"
   },
   "dependencies": {
     "debug": "^2.1.3",
     "noble": "^1.1.0",
-    "eddystone-url-encoding": "christopherdro/node-eddystone-url-encoding#fix-encoder"
+    "eddystone-url-encoding": "^1.0.0"
   }
 }

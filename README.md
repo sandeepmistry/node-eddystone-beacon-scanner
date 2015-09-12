@@ -23,17 +23,24 @@ var EddystoneBeaconScanner = require('eddystone-beacon-scanner');
 
 ### Register event handlers
 
-##### didFindBeacon
+##### discover
 ```javascript
-EddystoneBeaconScanner.on('didFindBeacon', function(beacon) {
+EddystoneBeaconScanner.on('discover', function(beacon) {
   // ...
 });
 ```
 
-##### didLoseBeacon
+##### found
+```javascript
+EddystoneBeaconScanner.on('found', function(beacon) {
+  // ...
+});
+```
+
+##### lost
 
 ```javascript
-EddystoneBeaconScanner.on('didLoseBeacon', function(beacon) {
+EddystoneBeaconScanner.on('lost', function(beacon) {
   // ...
 });
 ```
@@ -41,21 +48,28 @@ EddystoneBeaconScanner.on('didLoseBeacon', function(beacon) {
 The ```beacon``` object will have the following properties depending on the frame type:
 ##### URL
 
- * ```frameType``` - Eddystone frametype
+ * ```type``` - Eddystone type
  * ```txPower``` - Measured received power at 0 m in dBm
  * ```url``` - (expanded) URL the beacon is broadcasting
  * ```rssi``` - RSSI of discovered beacon
  * ```distance``` - Approximate distance from beacon
 
 ##### UID
- * ```frameType``` - Eddystone frametype
+ * ```type``` - Eddystone type
  * ```txPower``` - Measured received power at 0 m in dBm
  * ```namespace``` - 10-byte ID Namespace
  * ```instance``` - 6-byte ID Instance
  * ```rssi``` - RSSI of discovered beacon
  * ```distance``` - Approximate distance from beacon
 
-
+##### TLM
+ * ```version``` - TLM version
+ * ```vbatt``` - Battery voltage
+ * ```temp``` - Temperature
+ * ```advCnt``` - Advertising PDU count
+ * ```secCnt``` - Time since power-on or reboot
+ * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
 
 ### Start scanning
 
@@ -64,6 +78,8 @@ Start scanning for Eddystone beacons, you can specify whether to allow duplicate
 ```javascript
 EddystoneBeaconScanner.startScannning(allowDuplicates);
 ```
+
+__Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true
 
 ### Stop scanning
 

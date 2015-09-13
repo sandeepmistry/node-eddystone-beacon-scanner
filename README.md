@@ -51,6 +51,7 @@ The ```beacon``` object will have the following properties depending on the fram
  * ```type``` - Eddystone type
  * ```txPower``` - Measured received power at 0 m in dBm
  * ```url``` - (expanded) URL the beacon is broadcasting
+ * ```tlm``` - TLM data, only present when interleaved broadcasts are used by the beacon
  * ```rssi``` - RSSI of discovered beacon
  * ```distance``` - Approximate distance from beacon
 
@@ -59,15 +60,17 @@ The ```beacon``` object will have the following properties depending on the fram
  * ```txPower``` - Measured received power at 0 m in dBm
  * ```namespace``` - 10-byte ID Namespace
  * ```instance``` - 6-byte ID Instance
+ * ```tlm``` - TLM data, only present when interleaved broadcasts are used by the beacon
  * ```rssi``` - RSSI of discovered beacon
  * ```distance``` - Approximate distance from beacon
 
 ##### TLM
- * ```version``` - TLM version
- * ```vbatt``` - Battery voltage
- * ```temp``` - Temperature
- * ```advCnt``` - Advertising PDU count
- * ```secCnt``` - Time since power-on or reboot
+ * ```tlm```
+   * ```version``` - TLM version
+   * ```vbatt``` - Battery voltage
+   * ```temp``` - Temperature
+   * ```advCnt``` - Advertising PDU count
+   * ```secCnt``` - Time since power-on or reboot
  * ```rssi``` - RSSI of discovered beacon
  * ```distance``` - Approximate distance from beacon
 

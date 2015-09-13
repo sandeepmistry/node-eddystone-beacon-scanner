@@ -1,12 +1,15 @@
 var EddystoneBeaconScanner = require('../'); // use require('eddystone-beacon-scanner'), if installed from npm
 
-EddystoneBeaconScanner.on('discover', function(urlBeacon) {
-  console.log('discovered Eddystone beacon:');
-  console.log('  url      = ' + urlBeacon.url);
-  console.log('  type     = ' + urlBeacon.type);
-  console.log('  TX power = ' + urlBeacon.txPower);
-  console.log('  RSSI     = ' + urlBeacon.rssi);
-  console.log();
+EddystoneBeaconScanner.on('found', function(beacon) {
+  console.log('found Eddystone Beacon:\n', JSON.stringify(beacon, null, 2));
 });
 
-EddystoneBeaconScanner.startScanning();
+EddystoneBeaconScanner.on('lost', function(beacon) {
+  console.log('lost Eddystone Beacon:\n', JSON.stringify(beacon, null, 2));
+});
+
+EddystoneBeaconScanner.on('discover', function(beacon) {
+  console.log('discovered Eddystone beacon:\n', JSON.stringify(beacon, null, 2));
+});
+
+EddystoneBeaconScanner.startScanning(true);

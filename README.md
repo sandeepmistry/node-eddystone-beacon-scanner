@@ -4,8 +4,6 @@ Scan for [Eddystone beacon's](https://github.com/google/eddystone) using Node.js
 
 Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [Eddystone Protocol Specification](https://github.com/google/eddystone/blob/master/protocol-specification.md)
 
-__Note:__ Only supports Eddystone-URL beacons currently.
-
 ## Setup
 
 ```sh
@@ -23,20 +21,58 @@ See [examples](examples) folder.
 var EddystoneBeaconScanner = require('eddystone-beacon-scanner');
 ```
 
-### Register discover event handler
+### Register event handlers
 
+##### discover
 ```javascript
 EddystoneBeaconScanner.on('discover', function(beacon) {
   // ...
 });
 ```
 
-The ```beacon``` object will have the following properties:
+##### found
+```javascript
+EddystoneBeaconScanner.on('found', function(beacon) {
+  // ...
+});
+```
 
+##### lost
+
+```javascript
+EddystoneBeaconScanner.on('lost', function(beacon) {
+  // ...
+});
+```
+
+The ```beacon``` object will have the following properties depending on the frame type:
+##### URL
+
+ * ```type``` - Eddystone type
+ * ```txPower``` - Measured received power at 0 m in dBm
  * ```url``` - (expanded) URL the beacon is broadcasting
- * ```type``` - 'url'
- * ```txPower``` - measured received power at 0 m in dBm
+ * ```tlm``` - TLM data, only present when interleaved broadcasts are used by the beacon
  * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
+
+##### UID
+ * ```type``` - Eddystone type
+ * ```txPower``` - Measured received power at 0 m in dBm
+ * ```namespace``` - 10-byte ID Namespace
+ * ```instance``` - 6-byte ID Instance
+ * ```tlm``` - TLM data, only present when interleaved broadcasts are used by the beacon
+ * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
+
+##### TLM
+ * ```tlm```
+   * ```version``` - TLM version
+   * ```vbatt``` - Battery voltage
+   * ```temp``` - Temperature
+   * ```advCnt``` - Advertising PDU count
+   * ```secCnt``` - Time since power-on or reboot
+ * ```rssi``` - RSSI of discovered beacon
+ * ```distance``` - Approximate distance from beacon
 
 ### Start scanning
 
@@ -45,6 +81,8 @@ Start scanning for Eddystone beacons, you can specify whether to allow duplicate
 ```javascript
 EddystoneBeaconScanner.startScannning(allowDuplicates);
 ```
+
+__Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true
 
 ### Stop scanning
 

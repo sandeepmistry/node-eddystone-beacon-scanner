@@ -23,21 +23,30 @@ var EddystoneBeaconScanner = require('eddystone-beacon-scanner');
 
 ### Register event handlers
 
-##### discover
-```javascript
-EddystoneBeaconScanner.on('discover', function(beacon) {
-  // ...
-});
-```
+#### Found
 
-##### found
+Triggered when a beacon is first found.
+
+
 ```javascript
 EddystoneBeaconScanner.on('found', function(beacon) {
   // ...
 });
 ```
 
-##### lost
+#### Updated
+
+Triggered when a beacon advertisement detected.
+
+```javascript
+EddystoneBeaconScanner.on('updated', function(beacon) {
+  // ...
+});
+```
+
+#### Lost
+
+Triggered when a beacon has not been detected for 5 seconds.
 
 ```javascript
 EddystoneBeaconScanner.on('lost', function(beacon) {

@@ -1,8 +1,8 @@
 # node-eddystone-beacon-scanner
 
-Scan for [Eddystone beacon's](https://github.com/google/eddystone) using Node.js
+Scan for [Eddystone beacons](https://github.com/google/eddystone) using Node.js
 
-Use's [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [Eddystone Protocol Specification](https://github.com/google/eddystone/blob/master/protocol-specification.md)
+Uses [noble](https://github.com/sandeepmistry/noble) for BLE peripheral scanning, then attempts to parse discovered peripherals using the [Eddystone Protocol Specification](https://github.com/google/eddystone/blob/master/protocol-specification.md).
 
 ## Setup
 
@@ -91,7 +91,7 @@ Start scanning for Eddystone beacons, you can specify whether to allow duplicate
 EddystoneBeaconScanner.startScannning(allowDuplicates);
 ```
 
-__Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true
+__Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true.
 
 ### Stop scanning
 

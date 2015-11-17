@@ -98,5 +98,5 @@ __Note:__ the ```lost``` event will only be triggered when ```allowDuplicates```
 Stop scanning for Eddystone beacons.
 
 ```javascript
-EddystoneBeaconScanner.stopScannning();
+EddystoneBeaconScanner.stopScanning();
 ```

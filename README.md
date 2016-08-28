@@ -88,7 +88,7 @@ The ```beacon``` object will have the following properties depending on the fram
 Start scanning for Eddystone beacons, you can specify whether to allow duplicates (default is false).
 
 ```javascript
-EddystoneBeaconScanner.startScannning(allowDuplicates);
+EddystoneBeaconScanner.startScanning(allowDuplicates);
 ```
 
 __Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true.

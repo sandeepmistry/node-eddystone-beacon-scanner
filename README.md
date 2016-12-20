@@ -87,8 +87,10 @@ The ```beacon``` object will have the following properties depending on the fram
 
 Start scanning for Eddystone beacons, you can specify whether to allow duplicates (default is false).
 
+You can also specify the grace period (time to wait before declaring the beacon as lost). Default is 5000 ms.
+
 ```javascript
-EddystoneBeaconScanner.startScanning(allowDuplicates);
+EddystoneBeaconScanner.startScanning(allowDuplicates, gracePeriod);
 ```
 
 __Note:__ the ```lost``` event will only be triggered when ```allowDuplicates``` is set to true.

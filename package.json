@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "debug": "^2.1.3",
+    "eddystone-url-encoding": "^1.0.0",
     "noble": "^1.1.0",
-    "eddystone-url-encoding": "^1.0.0"
+    "node-forge": "^0.7.1"
   }
 }
